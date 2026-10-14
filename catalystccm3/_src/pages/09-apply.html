@@ -1,0 +1,156 @@
+<!--
+path: apply
+title: Apply Online | Catalyst Capital Management Residential Lending
+description: Apply online for a ground-up construction, fix-and-flip or bridge loan with Catalyst Capital Management. Three short steps, about ten minutes.
+nav: apply
+bodyclass: apply-page
+og: photo-1503387762-592deb58ef4e
+-->
+<section class="hero hero-sm">
+  <div class="hero-bg"><img src="{{U:photo-1503387762-592deb58ef4e:2000}}" alt="Architect drafting plans" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Home</a> / Apply</div>
+    <span class="eyebrow">Loan application</span>
+    <h1>Apply online in three short steps.</h1>
+    <p class="lead">About ten minutes. No credit pull, no obligation. A Catalyst lender reviews every application personally.</p>
+  </div>
+</section>
+
+<section class="section-sm alt">
+  <div class="wrap apply-layout">
+    <div class="form-card">
+      <ol class="progress" aria-label="Application progress">
+        <li class="active"><b>1</b>Project</li>
+        <li><b>2</b>Numbers</li>
+        <li><b>3</b>Borrower &amp; submit</li>
+      </ol>
+      <form id="loan-application" name="loan-application" method="POST" action="/thank-you/?f=application" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="company_website" novalidate>
+        <input type="hidden" name="form-name" value="loan-application">
+        <p class="hp"><label>Leave blank <input name="company_website"></label></p>
+
+        <!-- Step 1 -->
+        <div class="form-step">
+          <h2>Your project</h2>
+          <p>Choose a program and tell us about the property.</p>
+          <fieldset class="field" style="border:0;padding:0;margin:0 0 18px">
+            <legend>Loan program<span class="req">*</span></legend>
+            <div class="choice-grid" style="margin-top:8px">
+              <div class="choice"><input type="radio" id="pg-con" name="program" value="construction" required checked><label for="pg-con">Ground-Up Construction<span>Spec, infill, townhomes, multifamily</span></label></div>
+              <div class="choice"><input type="radio" id="pg-flip" name="program" value="flip"><label for="pg-flip">Fix &amp; Flip<span>Acquisition plus rehab, 1–4 family</span></label></div>
+              <div class="choice"><input type="radio" id="pg-bri" name="program" value="bridge"><label for="pg-bri">Bridge<span>Acquisition, refinance, entitled land</span></label></div>
+            </div>
+          </fieldset>
+          <div class="row-2">
+            <div class="field"><label for="purpose">Loan purpose<span class="req">*</span></label>
+              <select id="purpose" name="purpose" required>
+                <option value="">Select</option><option>Purchase</option><option>Purchase and construction or rehab</option><option>Construction on land I own</option><option>Refinance</option><option>Mid-construction refinance or recapitalization</option>
+              </select><span class="err-msg">Select a loan purpose.</span></div>
+            <div class="field"><label for="property_type">Property type<span class="req">*</span></label>
+              <select id="property_type" name="property_type" required>
+                <option value="">Select</option><option>Single-family</option><option>Townhome</option><option>Condominium</option><option>2–4 units</option><option>Multifamily (5+ units)</option><option>Entitled land or lots</option><option>Other</option>
+              </select><span class="err-msg">Select a property type.</span></div>
+          </div>
+          <div class="field"><label for="street">Property address<span class="req">*</span> <span class="hint">Use the parcel or lot description if there is no street address yet.</span></label><input id="street" name="street" type="text" autocomplete="street-address" required><span class="err-msg">Enter the property address.</span></div>
+          <div class="row-3">
+            <div class="field"><label for="city">City<span class="req">*</span></label><input id="city" name="city" type="text" required><span class="err-msg">Enter a city.</span></div>
+            <div class="field"><label for="state">State<span class="req">*</span></label>
+              <select id="state" name="state" required><option value="">Select</option><option>FL</option><option>GA</option><option>AL</option><option>SC</option><option>NC</option><option>TN</option><option>MS</option><option>Other</option></select><span class="err-msg">Select a state.</span></div>
+            <div class="field"><label for="zip">ZIP</label><input id="zip" name="zip" type="text" inputmode="numeric" maxlength="10" autocomplete="postal-code"></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="units">Number of units or homes</label><input id="units" name="units" type="number" min="1" inputmode="numeric" placeholder="1"></div>
+            <div class="field"><label for="square_feet">Finished square feet (approx.)</label><input id="square_feet" name="square_feet" type="number" min="0" inputmode="numeric"></div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" hidden>
+          <h2>The numbers</h2>
+          <p>Your best estimates are fine. We will refine them together during underwriting.</p>
+          <div class="row-2">
+            <div class="field"><label for="cost_a"><span data-flbl="a">Purchase price</span><span class="req">*</span></label><div class="money"><input id="cost_a" name="cost_a" type="text" inputmode="numeric" data-money required></div><span class="err-msg">Enter an amount.</span></div>
+            <div class="field"><label for="cost_b"><span data-flbl="b">Budget</span></label><div class="money"><input id="cost_b" name="cost_b" type="text" inputmode="numeric" data-money></div></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="value_completed"><span data-flbl="v">Value</span><span class="req">*</span></label><div class="money"><input id="value_completed" name="value_completed" type="text" inputmode="numeric" data-money required></div><span class="err-msg">Enter an estimated value.</span></div>
+            <div class="field"><label for="loan_amount">Loan amount requested<span class="req">*</span></label><div class="money"><input id="loan_amount" name="loan_amount" type="text" inputmode="numeric" data-money required></div><span class="err-msg">Enter the loan amount you are requesting.</span></div>
+          </div>
+          <div class="live-metrics" aria-live="polite">
+            <div data-m="cost"><span>Total cost</span><b>–</b></div>
+            <div data-m="ltc"><span>Loan-to-cost</span><b>–</b></div>
+            <div data-m="ltv"><span>Loan-to-value</span><b>–</b></div>
+          </div>
+          <p class="muted small" data-m="hint" style="margin-top:-10px"></p>
+          <div class="row-2">
+            <div class="field"><label for="closing_date">Target closing date</label><input id="closing_date" name="closing_date" type="date"></div>
+            <div class="field"><label for="exit_strategy">Exit strategy<span class="req">*</span></label>
+              <select id="exit_strategy" name="exit_strategy" required><option value="">Select</option><option>Sell upon completion</option><option>Refinance and hold as rental</option><option>Refinance into construction loan</option><option>Other</option></select><span class="err-msg">Select an exit strategy.</span></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="permit_status">Plans and permits</label>
+              <select id="permit_status" name="permit_status"><option value="">Select</option><option>Permits issued</option><option>Plans submitted, permits pending</option><option>Plans in design</option><option>Not applicable</option></select></div>
+            <div class="field"><label for="contractor">General contractor</label>
+              <select id="contractor" name="contractor"><option value="">Select</option><option>I am the licensed GC</option><option>Third-party GC selected</option><option>GC not yet selected</option></select></div>
+          </div>
+          <div class="field"><label for="description">Project description <span class="hint">Scope, timeline and anything we should know.</span></label><textarea id="description" name="description"></textarea></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" hidden>
+          <h2>Borrower &amp; submit</h2>
+          <p>Tell us who you are and how to reach you.</p>
+          <div class="row-2">
+            <div class="field"><label for="first_name">First name<span class="req">*</span></label><input id="first_name" name="first_name" type="text" autocomplete="given-name" required><span class="err-msg">Enter your first name.</span></div>
+            <div class="field"><label for="last_name">Last name<span class="req">*</span></label><input id="last_name" name="last_name" type="text" autocomplete="family-name" required><span class="err-msg">Enter your last name.</span></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="email">Email<span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required><span class="err-msg">Enter a valid email.</span></div>
+            <div class="field"><label for="phone">Phone<span class="req">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" required><span class="err-msg">Enter a phone number.</span></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="entity_name">Borrowing entity <span class="hint">If formed</span></label><input id="entity_name" name="entity_name" type="text" placeholder="Example Homes LLC"></div>
+            <div class="field"><label for="experience">Projects completed, last 3 years<span class="req">*</span></label>
+              <select id="experience" name="experience" required><option value="">Select</option><option>0</option><option>1–2</option><option>3–5</option><option>6–10</option><option>More than 10</option></select><span class="err-msg">Select your experience.</span></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="credit_range">Estimated credit range <span class="hint">No credit pull</span></label>
+              <select id="credit_range" name="credit_range"><option value="">Select</option><option>760+</option><option>720–759</option><option>680–719</option><option>640–679</option><option>Below 640</option><option>Not sure</option></select></div>
+            <div class="field"><label for="referral">How did you hear about us?</label>
+              <select id="referral" name="referral"><option value="">Select</option><option>Repeat borrower</option><option>Referral</option><option>Broker</option><option>Search</option><option>LinkedIn</option><option>Event</option><option>Other</option></select></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="file_budget">Budget or scope of work <span class="hint">Optional, PDF or Excel</span></label><input id="file_budget" name="file_budget" type="file" accept=".pdf,.xls,.xlsx,.csv,.doc,.docx"></div>
+            <div class="field"><label for="file_other">Plans, photos or project summary <span class="hint">Optional</span></label><input id="file_other" name="file_other" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"></div>
+          </div>
+          <p class="muted small" style="margin-top:-6px">Combined uploads up to 8 MB. Larger files can be emailed after you submit.</p>
+          <div class="field"><label class="check"><input type="checkbox" name="is_broker" value="yes"> I am a broker applying on behalf of a borrower</label></div>
+
+          <div class="review"><strong style="color:var(--navy)">Review your request</strong><dl id="review-list" style="margin-top:10px"></dl></div>
+
+          <div class="field check-wrap"><label class="check"><input type="checkbox" name="consent" value="agreed" required> <span>I confirm this request is for a business-purpose loan on non-owner-occupied property, the information provided is accurate to the best of my knowledge, and Catalyst Capital Management may contact me about this request. Submitting this application is not a commitment to lend.<span class="req">*</span></span></label><span class="err-msg">Please confirm to submit.</span></div>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-outline" data-back hidden>Back</button>
+          <span></span>
+          <button type="button" class="btn btn-navy" data-next>Continue</button>
+          <button type="submit" class="btn btn-gold" data-submit hidden>Submit Application</button>
+        </div>
+      </form>
+    </div>
+
+    <aside class="side-card">
+      <h3>What happens next</h3>
+      <ol>
+        <li>A Catalyst lender reviews your application.</li>
+        <li>We call to talk through the deal and confirm structure.</li>
+        <li>You receive a term sheet, then we move to underwriting.</li>
+      </ol>
+      <hr>
+      <p class="small" style="margin-bottom:6px;color:var(--gold);font-weight:700;letter-spacing:.12em;text-transform:uppercase">Prefer to talk first?</p>
+      <p style="margin:0"><a href="tel:{{tel}}">{{phone}}</a><br><a href="mailto:{{email}}">{{email}}</a></p>
+      <hr>
+      <p class="small" style="margin:0;color:#AEB5CA">Your information is used to evaluate your loan request. Business-purpose loans only.</p>
+    </aside>
+  </div>
+</section>
